@@ -1,0 +1,12 @@
+# Segredos locais (use .env.example como modelo)
+.env
+
+# Logs e temporarios
+*.log
+*.tmp
+*.swp
+
+# Sistema operacional / editores
+.DS_Store
+.vscode/
+.idea/
