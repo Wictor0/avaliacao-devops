@@ -1,0 +1,41 @@
+services:
+  # Aplicação web: imagem construída a partir do Dockerfile do projeto
+  app:
+    build: .
+    image: techsolutions-app:1.0
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # Banco de dados: imagem pronta do Docker Hub, com banco e usuário criados na 1a execução
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root123}
+      MYSQL_DATABASE: empresa
+      MYSQL_USER: aluno
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-aluno123}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    restart: unless-stopped
+
+  # Administração do banco: encontra o MySQL pelo nome do serviço (mysql)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db_data:
