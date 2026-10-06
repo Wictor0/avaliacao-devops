@@ -108,3 +108,6 @@ docker compose up -d --build     # reconstrói tudo a partir do Dockerfile e do 
 
 ## Histórico Git
 Repositório versionado na branch `main`; consulte com `git log --oneline`.
+
+## Resultado do teste de reprodutibilidade
+Executado em 06/10/2026 17:04 na VM Ubuntu 24.04: `docker compose down -v` e remoção da imagem deixaram zero serviços em execução; em seguida `docker compose up -d --build` reconstruiu a imagem pelo Dockerfile e recriou os três serviços, com a aplicação em :8080, o phpMyAdmin em :8081 e o banco `empresa` acessível pelo usuário `aluno`, sem nenhuma configuração manual anterior.
