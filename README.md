@@ -13,7 +13,7 @@
 
 </div>
 
-> **Avaliação Prática – Unidade I** · Configuração e Manutenção de Infraestrutura de Software (DevOps) · Prof. Adilson da Silva
+> **Avaliação Prática – Unidade I** · Configuração e Manutenção de Infraestrutura de Software (DevOps) · Prof. Adilson da Silva  
 > **Integrante:** Wictor Melo
 
 ---
@@ -73,9 +73,9 @@ O `app` usa **`build`** porque é código nosso; `mysql` e `phpmyadmin` usam **`
 ## 🖼️ Como fica
 
 <p align="center">
-  <img src="docs/img/app.png" alt="Aplicação TechSolutions em localhost:8080" width="46%">
+  <img src="docs/img/app.png" alt="Aplicação TechSolutions em localhost:8080" width="45%">
   &nbsp;
-  <img src="docs/img/phpmyadmin.png" alt="phpMyAdmin em localhost:8081" width="46%">
+  <img src="docs/img/phpmyadmin.png" alt="phpMyAdmin em localhost:8081" width="45%">
 </p>
 
 ## 🔑 Credenciais (laboratório)
